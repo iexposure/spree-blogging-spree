@@ -1,5 +1,5 @@
-Deface::Override.new(:virtual_path => "spree/admin/shared/main_menu",
+Deface::Override.new(:virtual_path => "spree/layouts/admin",
                      :name => "blog_admin_tabs",
                      :insert_bottom => "#main-sidebar",
-                     :text => "<% if can? :admin, BlogEntry %><ul class=\"nav nav-sidebar\"><%= tab *[:blog], icon: 'file'  %></ul><% end %>",
+                     :text => "<% if can? :admin, Spree::BlogEntry %><ul class=\"nav nav-sidebar\"><%= tab *[:blog_entries], icon: 'file'  %></ul><% end %>",
                      :disabled => false)
