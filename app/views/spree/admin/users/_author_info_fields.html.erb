@@ -3,12 +3,12 @@
     <%= f.field_container :nickname, class: ['form-group'] do %>
         <%= f.label :nickname, Spree.t(:nickname) %>
         <%= f.text_field :nickname, :class => 'form-control' %>
-        <%= error_message_on :user, :nickname %>
+        <%= f.error_message_on :nickname %>
     <% end %>
     <%= f.field_container :website_url, class: ['form-group']  do %>
         <%= f.label :website_url, Spree.t(:website_url) %>
         <%= f.text_field :website_url, :class => 'form-control' %>
-        <%= error_message_on :user, :website_url %>
+        <%= f.error_message_on :website_url %>
     <% end %>
     <%= f.field_container :google_plus_url, class: ['form-group']  do %>
         <%= f.label :google_plus_url, Spree.t(:google_plus_url) %>
