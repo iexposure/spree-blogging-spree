@@ -14,9 +14,9 @@
       <colgroup>
         <col style="width: 10%">
         <col style="width: 30%">
-        <col style="width: 35%">
+        <col style="width: 45%">
         <col style="width: 5%">
-        <col style="width: 20%">
+        <col style="width: 10%">
       </colgroup>
       <thead>
       <tr data-hook="admin_blog_entries_index_headers">
@@ -35,7 +35,7 @@
             <td><%= blog_entry.title %></td>
             <td><%= blog_entry.summary.truncate(300) if blog_entry.summary %></td>
             <td style="text-align: center">
-              <%= content_tag(:i, '', :class => 'icon icon-check') if blog_entry.visible %>
+              <%= icon('icon icon-check') if blog_entry.visible %>
             </td>
             <td class="actions">
               <%= link_to_blog_in_store blog_entry, :no_text => true, target: '_blank' %>
