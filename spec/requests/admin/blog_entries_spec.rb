@@ -23,7 +23,7 @@ describe "Blog Entry" do
         page.should have_content("11 Mar 2010")
       end
       it "should display blog visible" do
-        page.should have_css('i.fa.fa-ok.green')
+        page.should have_css('i.icon-check')
       end
     end
 
@@ -46,11 +46,8 @@ describe "Blog Entry" do
       page.should have_content("New body")
       page.should have_content("New summary")
       find_field('blog_entry_title').value.should == "New title"
-
-      p find('#blog_entry_tag_list').value
-      find('#blog_entry_tag_list', visible: false).value.should == "tag1, tag2"
-      
-      # find_field('blog_entry_category_list').value.should == "cat1, cat2"
+      find_field('blog_entry_tag_list').value.should == "tag1, tag2"
+      find_field('blog_entry_category_list').value.should == "cat1, cat2"
       find_field('blog_entry_published_at').value.should == "2013/02/01"
       find_field('blog_entry_visible').value.should == "1"
       find_field('blog_entry_permalink').value.should == "some-permalink-path"
@@ -59,7 +56,8 @@ describe "Blog Entry" do
     it "should add an author to a blog entry" do
       user = create(:user, :email => "me@example.com")
       user.spree_roles << Spree::Role.find_or_create_by(name: 'blogger')
-      within_row(1) { click_icon :edit }
+      # within_row(1) { click_icon :edit }
+      within_row(1) { find(".icon-edit").find(:xpath,".//..").click }
       select "me@example.com", :from => 'Author'
       click_on 'Update'
       page.should have_content("Blog Entry has been successfully updated")
@@ -70,7 +68,8 @@ describe "Blog Entry" do
     it "should add a featured image to a blog entry" do
       file_path = Rails.root + "../../spec/support/image.png"
 
-      within_row(1) { click_icon :edit }
+      # within_row(1) { click_icon :edit }
+      within_row(1) { find(".icon-edit").find(:xpath,".//..").click }
       attach_file('blog_entry_blog_entry_image_attributes_attachment', file_path)
       click_button "Update"
       page.should have_content("successfully updated")
