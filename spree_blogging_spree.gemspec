@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '3.0.0'
   s.summary     = 'BloggingSpree: A Spree blogging solution'
   s.description = 'A basic blogging solution for use with the Spree E-Commerce platform.'
-  s.required_ruby_version = '>= 2.2.0'
+  s.required_ruby_version = '>= 2'
 
   s.author    = 'Stefan Senk, Sumit Sharma'
   s.email     = 'forever.sumitsharma@gmail.com'
